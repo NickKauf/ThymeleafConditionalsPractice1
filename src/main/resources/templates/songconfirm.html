@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/songform}">Song Entry</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/songconfirm}">Last Entry<span class="sr-only"> << </span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<h2>Latest Song:</h2>
+
+
+<p th:inline="text">The song name was [[${song.name}]]<br>
+    The artist name is [[${song.artist}]]. <br>
+    The album name is [[${song.album}]]. <br>
+    The rating was [[${song.rating}]]. <br>
+    The genre was [[${song.genre}]]. <br>
+</p>
+<span th:if="${song.inStock}">This song is in stock</span>
+<span th:unless="${song.inStock}">This song is out of stock</span>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
